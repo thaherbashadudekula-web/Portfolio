@@ -139,6 +139,84 @@
   .btn-shine-effect:hover::after {
     left: 140%;
   }
+
+  /* Tech Stack Constellation Animations */
+  @keyframes techDash {
+    to {
+      stroke-dashoffset: -24;
+    }
+  }
+
+  @keyframes floatNode1 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -6px, 0);
+    }
+  }
+
+  @keyframes floatNode2 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(4px, 5px, 0);
+    }
+  }
+
+  @keyframes floatNode3 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(-4px, -5px, 0);
+    }
+  }
+
+  @keyframes floatNode4 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(3px, -4px, 0);
+    }
+  }
+
+  @keyframes corePulseGlow {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.12);
+      opacity: 0.65;
+    }
+  }
+
+  .animate-tech-dash {
+    animation: techDash 1.2s linear infinite;
+  }
+
+  .animate-float-node-1 {
+    animation: floatNode1 6s ease-in-out infinite;
+  }
+
+  .animate-float-node-2 {
+    animation: floatNode2 7s ease-in-out infinite 1s;
+  }
+
+  .animate-float-node-3 {
+    animation: floatNode3 5.5s ease-in-out infinite 2s;
+  }
+
+  .animate-float-node-4 {
+    animation: floatNode4 6.5s ease-in-out infinite 1.5s;
+  }
+
+  .animate-core-pulse {
+    animation: corePulseGlow 4s ease-in-out infinite;
+  }
 }
 
 /* Reduced motion preference */
