@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Mail, 
+  Phone,
   Send, 
   Copy, 
   Check, 
@@ -25,6 +26,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toastMessage, setToastMessage] = useState(null);
   const [emailCopied, setEmailCopied] = useState(false);
+  const [phoneCopied, setPhoneCopied] = useState(false);
 
   const showToast = (message, type = 'success') => {
     setToastMessage({ message, type });
@@ -97,6 +99,13 @@ export default function Contact() {
     setTimeout(() => setEmailCopied(false), 2500);
   };
 
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText(personalData.phone);
+    setPhoneCopied(true);
+    showToast('Phone number copied to clipboard!', 'success');
+    setTimeout(() => setPhoneCopied(false), 2500);
+  };
+
   return (
     <section id="contact" className="py-24 relative overflow-hidden bg-dark-900/30 border-t border-white/[0.05]">
       {/* Toast Notification */}
@@ -131,7 +140,7 @@ export default function Contact() {
             Let's Build Something Great Together
           </h2>
           <p className="mt-2 text-base text-slate-300 max-w-xl">
-            Have a project, full-stack opening, or technical idea? Send a message or reach out directly.
+            Have an internship opening, software development opportunity, or technical idea? Send a message or reach out directly.
           </p>
         </div>
 
@@ -141,43 +150,85 @@ export default function Contact() {
           {/* Left: Contact Info Cards */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* Quick Copy Email Card */}
-            <div className="glass-panel p-6 rounded-2xl border-white/[0.08] relative group">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-mono text-slate-400">Direct Contact</span>
-                <button
-                  type="button"
-                  onClick={handleCopyEmail}
-                  className="flex items-center gap-1.5 text-xs font-mono text-accent-cyan hover:text-accent-cyan-light transition-colors p-1"
-                >
-                  {emailCopied ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5" />
-                      <span>Copy Email</span>
-                    </>
-                  )}
-                </button>
+            {/* Quick Copy Email & Phone Card */}
+            <div className="glass-panel p-6 rounded-2xl border-white/[0.08] relative group space-y-5">
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-mono text-slate-400">Direct Email</span>
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    className="flex items-center gap-1.5 text-xs font-mono text-accent-cyan hover:text-accent-cyan-light transition-colors p-1"
+                  >
+                    {emailCopied ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-emerald-400" />
+                        <span className="text-emerald-400">Copied</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>Copy Email</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-dark-850 border border-white/10 flex items-center justify-center text-accent-cyan shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div className="flex flex-col truncate">
+                    <span className="text-sm font-bold text-slate-100">Email</span>
+                    <a
+                      href={`mailto:${personalData.email}`}
+                      className="text-xs sm:text-sm font-mono text-slate-300 hover:text-accent-cyan transition-colors truncate"
+                    >
+                      {personalData.email}
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-dark-850 border border-white/10 flex items-center justify-center text-accent-cyan">
-                  <Mail className="w-5 h-5" />
+              {personalData.phone && (
+                <div className="pt-4 border-t border-white/[0.06]">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-mono text-slate-400">Phone / Call</span>
+                    <button
+                      type="button"
+                      onClick={handleCopyPhone}
+                      className="flex items-center gap-1.5 text-xs font-mono text-accent-cyan hover:text-accent-cyan-light transition-colors p-1"
+                    >
+                      {phoneCopied ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-400" />
+                          <span className="text-emerald-400">Copied</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5" />
+                          <span>Copy Phone</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-dark-850 border border-white/10 flex items-center justify-center text-accent-cyan shrink-0">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col truncate">
+                      <span className="text-sm font-bold text-slate-100">Phone Number</span>
+                      <a
+                        href={`tel:${personalData.phoneTel || personalData.phone}`}
+                        className="text-xs sm:text-sm font-mono text-slate-300 hover:text-accent-cyan transition-colors"
+                      >
+                        {personalData.phone}
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-sm font-bold text-slate-100">Email Address</span>
-                  <a
-                    href={`mailto:${personalData.email}`}
-                    className="text-xs sm:text-sm font-mono text-slate-300 hover:text-accent-cyan transition-colors"
-                  >
-                    {personalData.email}
-                  </a>
-                </div>
-              </div>
+              )}
             </div>
 
             {/* Location & Timezone Card */}

@@ -67,7 +67,7 @@ export default function Hero() {
               {/* Highlighted Profile Picture with Hover Effect */}
               <div className="relative group/avatar shrink-0">
                 <div 
-                  className="absolute -inset-1 bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-violet rounded-2xl blur-md opacity-70 group-hover/avatar:opacity-100 group-hover/avatar:scale-105 transition-all duration-500 animate-pulse-glow" 
+                  className="absolute -inset-1 bg-gradient-to-r from-sky-400 via-sky-300 to-white rounded-2xl blur-md opacity-70 group-hover/avatar:opacity-100 group-hover/avatar:scale-105 transition-all duration-500 animate-pulse-glow" 
                   aria-hidden="true" 
                 />
                 <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-accent-cyan/40 group-hover/avatar:border-accent-cyan shadow-xl bg-dark-900 transition-all duration-300 cursor-pointer">
@@ -130,7 +130,7 @@ export default function Hero() {
               {/* Primary CTA */}
               <a
                 href="#projects"
-                className="btn-shine-effect w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-950 bg-gradient-to-r from-accent-cyan via-accent-cyan-light to-accent-blue hover:opacity-95 shadow-glow-cyan hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+                className="btn-shine-effect w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-950 bg-gradient-to-r from-accent-cyan via-accent-cyan-light to-white hover:opacity-95 shadow-glow-cyan hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>View My Work</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -148,13 +148,14 @@ export default function Hero() {
               {/* Resume CTA (Functional & Configurable) */}
               <a
                 href={personalData.resumeUrl}
+                download={personalData.resumeFileName}
                 onClick={handleResumeClick}
-                target={personalData.resumeUrl.startsWith('http') ? '_blank' : '_self'}
+                target="_blank"
                 rel="noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-medium text-sm text-slate-300 hover:text-white bg-dark-900/40 hover:bg-dark-850 border border-white/[0.08] hover:border-accent-violet/40 transition-all duration-300 hover:-translate-y-0.5"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-medium text-sm text-slate-300 hover:text-white bg-dark-900/40 hover:bg-dark-850 border border-white/[0.08] hover:border-accent-cyan/40 transition-all duration-300 hover:-translate-y-0.5"
                 title="Download Developer Resume"
               >
-                <FileDown className="w-4 h-4 text-accent-violet" />
+                <FileDown className="w-4 h-4 text-accent-cyan" />
                 <span>Resume</span>
               </a>
             </div>

@@ -26,7 +26,7 @@ export default function FeaturedProject() {
             Featured Innovation
           </h2>
           <p className="mt-2 text-base text-slate-300 max-w-2xl">
-            A deep-dive into an end-to-end full-stack platform combining real-time MERN architecture with fraud risk scoring.
+            A deep-dive into an autonomous multi-agent disaster intelligence platform combining hybrid RAG, vector search, and real-time token streaming.
           </p>
         </div>
 
@@ -90,12 +90,12 @@ export default function FeaturedProject() {
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href={featuredProject.liveUrl}
+                href={featuredProject.githubUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-shine-effect inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-xs text-slate-950 bg-accent-cyan hover:bg-accent-cyan-light shadow-glow-cyan transition-all duration-300"
               >
-                <span>Live Interactive Demo</span>
+                <span>View On GitHub</span>
                 <ArrowUpRight className="w-4 h-4" />
               </a>
 
@@ -106,7 +106,7 @@ export default function FeaturedProject() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-xs text-slate-200 bg-dark-850 hover:bg-dark-800 border border-white/10 hover:border-white/20 transition-all duration-300"
               >
                 <GithubIcon className="w-4 h-4" />
-                <span>View Source Code</span>
+                <span>Source Repository</span>
               </a>
             </div>
           </div>
@@ -150,55 +150,55 @@ export default function FeaturedProject() {
                     <div className="flex items-center gap-2">
                       <ShieldAlert className="w-4 h-4 text-accent-cyan" />
                       <span className="text-xs font-semibold text-slate-200">
-                        Live Threat Detection Matrix
+                        Autonomous Multi-Agent Intelligence Hub
                       </span>
                     </div>
                     <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                      WebSocket Connected (9ms)
+                      Socket.IO Streaming (Active)
                     </span>
                   </div>
 
                   {/* Threat Metric Cards */}
                   <div className="grid grid-cols-3 gap-2.5">
                     <div className="p-2.5 rounded-xl bg-dark-900 border border-white/[0.06]">
-                      <span className="text-[10px] text-slate-400">Threat Score</span>
-                      <p className="text-sm sm:text-base font-bold text-emerald-400">0.08 (Low)</p>
+                      <span className="text-[10px] text-slate-400">Agent Nodes</span>
+                      <p className="text-sm sm:text-base font-bold text-accent-cyan">4 Autonomous</p>
                     </div>
                     <div className="p-2.5 rounded-xl bg-dark-900 border border-white/[0.06]">
-                      <span className="text-[10px] text-slate-400">Intercepted</span>
-                      <p className="text-sm sm:text-base font-bold text-amber-400">14 Flagged</p>
+                      <span className="text-[10px] text-slate-400">Retrieval Fusion</span>
+                      <p className="text-sm sm:text-base font-bold text-emerald-400">Hybrid + RRF</p>
                     </div>
                     <div className="p-2.5 rounded-xl bg-dark-900 border border-white/[0.06]">
-                      <span className="text-[10px] text-slate-400">Auth Throughput</span>
-                      <p className="text-sm sm:text-base font-bold text-accent-cyan">4.8k / sec</p>
+                      <span className="text-[10px] text-slate-400">Vector Store</span>
+                      <p className="text-sm sm:text-base font-bold text-accent-blue">Qdrant + S3</p>
                     </div>
                   </div>
 
                   {/* Simulated Live Transaction Stream */}
                   <div className="space-y-2 pt-1">
                     <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">
-                      Recent Streamed Transactions
+                      Live Multi-Agent Stream Telemetry
                     </span>
 
                     {[
-                      { id: "TX-94812", amount: "$1,240.00", ip: "192.168.1.42", risk: "APPROVED", statusColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20" },
-                      { id: "TX-94813", amount: "$14,990.00", ip: "45.134.20.1", risk: "SUSPICIOUS", statusColor: "text-amber-400 bg-amber-500/10 border-amber-500/20" },
-                      { id: "TX-94814", amount: "$38.50", ip: "103.21.244.0", risk: "APPROVED", statusColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20" },
-                      { id: "TX-94815", amount: "$8,500.00", ip: "185.220.101.5", risk: "BLOCKED", statusColor: "text-rose-400 bg-rose-500/10 border-rose-500/20" },
-                    ].map((txn) => (
+                      { id: "DISASTER-AGENT", event: "Flood relief resource routing synthesized", detail: "Qdrant Vector Match: 0.94", status: "GROUNDED", statusColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20" },
+                      { id: "HEALTH-AGENT", event: "Emergency shelter medical capacity mapped", detail: "RRF Fusion Score: 0.98", status: "RESOLVED", statusColor: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20" },
+                      { id: "GOV-PORTAL", event: "Disaster advisory ingestion & chunking complete", detail: "S3 Pipeline • BullMQ", status: "INDEXED", statusColor: "text-amber-400 bg-amber-500/10 border-amber-500/20" },
+                      { id: "VOLUNTEER-HQ", event: "Volunteer task channel active & streaming", detail: "Socket.IO Token Stream", status: "STREAMING", statusColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20" },
+                    ].map((agent) => (
                       <div
-                        key={txn.id}
+                        key={agent.id}
                         className="flex items-center justify-between p-2.5 rounded-lg bg-dark-900/80 border border-white/[0.04] text-xs font-mono"
                       >
-                        <div className="flex items-center gap-2">
-                          <Activity className="w-3.5 h-3.5 text-accent-cyan" />
-                          <span className="text-slate-300">{txn.id}</span>
-                          <span className="text-slate-500 hidden sm:inline">{txn.ip}</span>
+                        <div className="flex items-center gap-2 truncate">
+                          <Activity className="w-3.5 h-3.5 text-accent-cyan shrink-0" />
+                          <span className="text-slate-300 font-semibold shrink-0">[{agent.id}]</span>
+                          <span className="text-slate-400 truncate hidden sm:inline">{agent.event}</span>
                         </div>
-                        <div className="flex items-center gap-3">
-                          <span className="text-slate-200 font-semibold">{txn.amount}</span>
-                          <span className={`text-[10px] px-2 py-0.5 rounded border ${txn.statusColor}`}>
-                            {txn.risk}
+                        <div className="flex items-center gap-3 shrink-0 ml-2">
+                          <span className="text-slate-400 text-[11px] hidden md:inline">{agent.detail}</span>
+                          <span className={`text-[10px] px-2 py-0.5 rounded border ${agent.statusColor}`}>
+                            {agent.status}
                           </span>
                         </div>
                       </div>
@@ -208,10 +208,10 @@ export default function FeaturedProject() {
                   {/* Browser Footer Banner */}
                   <div className="p-2.5 rounded-xl bg-accent-cyan/5 border border-accent-cyan/20 flex items-center justify-between text-[11px]">
                     <span className="text-slate-300">
-                      Protected by ML Heuristics & MongoDB Aggregations
+                      PostgreSQL & Prisma • Qdrant Vector DB • Redis Caching • BullMQ
                     </span>
                     <span className="text-accent-cyan font-mono font-semibold">
-                      v2.0 Active
+                      v1.0 Production
                     </span>
                   </div>
 

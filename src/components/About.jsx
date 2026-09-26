@@ -19,13 +19,13 @@ export default function About() {
       title: "Scalable Data Modeling",
       description: "Designing indexed MongoDB collections, normalized relationship models, and high-efficiency aggregation pipelines.",
       icon: Layers,
-      accent: "text-accent-blue"
+      accent: "text-white"
     },
     {
       title: "Performance & UX Depth",
       description: "Prioritizing low Core Web Vitals, minimal layout shifts, instant API responses, and smooth, accessible micro-interactions.",
       icon: Zap,
-      accent: "text-accent-violet"
+      accent: "text-accent-cyan-light"
     }
   ];
 
@@ -55,7 +55,7 @@ export default function About() {
             <div className="relative group w-full max-w-sm cursor-pointer">
               {/* Ambient glowing gradient behind photo */}
               <div 
-                className="absolute -inset-2 bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-violet rounded-3xl blur-xl opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 animate-pulse-glow" 
+                className="absolute -inset-2 bg-gradient-to-r from-sky-400 via-sky-300 to-white rounded-3xl blur-xl opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 animate-pulse-glow" 
                 aria-hidden="true" 
               />
               
@@ -79,7 +79,7 @@ export default function About() {
                 {/* Floating Bottom Card Details */}
                 <div className="relative z-10 p-5 flex flex-col justify-end">
                   <span className="text-xs font-mono text-accent-cyan font-semibold flex items-center gap-1.5 mb-1">
-                    MERN Stack Developer
+                    {personalData.title}
                   </span>
                   <h3 className="text-xl font-extrabold text-slate-100 tracking-tight">
                     {personalData.displayName}
@@ -103,12 +103,12 @@ export default function About() {
             {/* Core Values checklist */}
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
-                "Modern React 19 & Hooks",
+                "React.js & Tailwind CSS",
                 "Node.js & Express REST APIs",
-                "MongoDB Schema Optimization",
-                "JWT & Secure Middleware",
-                "Tailwind CSS Responsive UI",
-                "Git & Clean Pull Requests"
+                "PostgreSQL (Prisma) & MongoDB",
+                "RAG, Embeddings & Hybrid Retrieval",
+                "JWT & Bcrypt Authentication",
+                "Git & GitHub Version Control"
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-200">
                   <CheckCircle2 className="w-4 h-4 text-accent-cyan shrink-0" />

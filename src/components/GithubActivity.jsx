@@ -20,8 +20,8 @@ export default function GithubActivity() {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4">
           <div className="flex flex-col items-start">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-accent-blue/10 border border-accent-blue/20 text-xs font-mono text-accent-blue mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-accent-cyan/10 border border-accent-cyan/20 text-xs font-mono text-accent-cyan mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan" />
               <span>07 // OPEN SOURCE & REPOSITORIES</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
@@ -137,24 +137,24 @@ export default function GithubActivity() {
               </a>
             ))
           ) : (
-            // Honest fallback repository cards
+            // Authentic fallback repository cards
             [
               {
-                name: "rakshapay-ai",
-                desc: "AI-powered payment fraud risk scoring platform with real-time WebSocket anomaly detection.",
-                lang: "JavaScript",
-                url: personalData.github
-              },
-              {
-                name: "campus-os-fullstack",
-                desc: "Integrated academic workflow and campus student management system with RBAC security.",
+                name: "ResQAI",
+                desc: "Autonomous multi-agent disaster intelligence RAG platform with hybrid retrieval, Qdrant vector search & Socket.IO token streaming.",
                 lang: "TypeScript",
                 url: personalData.github
               },
               {
-                name: "devpulse-observability",
-                desc: "Lightweight telemetry and API performance monitoring dashboard for Node.js microservices.",
-                lang: "React",
+                name: "developer-portfolio",
+                desc: "Modern responsive developer portfolio built with React and Vite with a component-based frontend architecture.",
+                lang: "React.js",
+                url: personalData.github
+              },
+              {
+                name: "sih-ilrdvs",
+                desc: "Intelligent Land Record Digitization & Validation System frontend implementation and authentication workflows.",
+                lang: "JavaScript",
                 url: personalData.github
               }
             ].map((repo, idx) => (

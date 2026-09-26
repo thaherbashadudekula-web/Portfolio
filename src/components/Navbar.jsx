@@ -85,20 +85,8 @@ export default function Navbar({ activeSection }) {
             })}
           </ul>
 
-          {/* Right Action: Currently Building / Let's Talk */}
+          {/* Right Action: Let's Talk */}
           <div className="hidden md:flex items-center gap-3">
-            {/* Currently Building mini badge */}
-            <a
-              href="#projects"
-              className="hidden 2xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-dark-900/70 border border-accent-cyan/20 text-xs font-mono text-slate-300 hover:border-accent-cyan/40 transition-colors"
-              title={personalData.currentlyBuilding.focus}
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-slate-400">Building:</span>
-              <span className="text-accent-cyan-light font-semibold">
-                {personalData.currentlyBuilding.project}
-              </span>
-            </a>
 
             {/* Let's Talk CTA */}
             <a
@@ -141,17 +129,6 @@ export default function Navbar({ activeSection }) {
             transition={{ duration: 0.2 }}
             className="md:hidden mt-2 p-4 rounded-2xl glass-panel border-white/10 shadow-2xl backdrop-blur-xl"
           >
-            {/* Mobile Currently Building */}
-            <div className="mb-4 p-2.5 rounded-xl bg-dark-900/90 border border-accent-cyan/20 flex items-center justify-between text-xs font-mono">
-              <span className="flex items-center gap-1.5 text-slate-400">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Active WIP:
-              </span>
-              <span className="text-accent-cyan font-medium">
-                {personalData.currentlyBuilding.project}
-              </span>
-            </div>
-
             <ul className="flex flex-col gap-1.5">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.substring(1);

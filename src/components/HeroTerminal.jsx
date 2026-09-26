@@ -8,47 +8,57 @@ export default function HeroTerminal() {
   const [copied, setCopied] = useState(false);
 
   const files = {
-    'developer.ts': `// MERN Stack Developer Specification
+    'developer.ts': `// Full-Stack / MERN Developer Specification
 export const developer: Profile = {
   name: "${personalData.displayName}",
-  role: "MERN Stack Developer",
-  focus: "Resilient backend APIs & high-performance React UI",
-  architecture: {
-    client: ["React 19", "TypeScript", "Tailwind CSS", "Vite"],
-    server: ["Node.js", "Express", "RESTful APIs", "JWT Auth"],
-    database: ["MongoDB", "Mongoose", "Index Optimization"],
-    tooling: ["Git", "Docker", "Postman", "CI/CD Pipelines"]
+  title: "Full-Stack / MERN Developer",
+  education: {
+    program: "B.Tech in CSE (Artificial Intelligence)",
+    university: "Malla Reddy Vishwavidhyapeeth",
+    cgpa: "8.7 / 10"
   },
-  availableForHire: true,
-  mission: "Crafting modern software that scales gracefully."
+  flagshipProject: "ResQAI (Multi-Agent Disaster Intelligence)",
+  stack: {
+    languages: ["JavaScript", "C++", "Python", "SQL"],
+    frontend: ["React.js", "Tailwind CSS", "HTML5", "CSS3", "Vite"],
+    backend: ["Node.js", "Express.js", "REST APIs", "Socket.IO", "JWT", "Bcrypt"],
+    database: ["MongoDB", "PostgreSQL", "Prisma", "Redis", "Qdrant"],
+    ai_rag: ["Multi-Agent RAG", "Embeddings", "Hybrid Retrieval", "RRF"]
+  },
+  hackathons: ["Smart India Hackathon (ILRDVS)", "Razorpay Hackathon (RazorAI)", "HackIT x MRDU'26"],
+  status: "Open for Software Development / MERN Internships"
 };`,
     'stack.config.json': `{
-  "stack": "MERN",
-  "client": {
-    "framework": "React 19",
-    "compiler": "Vite",
+  "developer": "Thaher Basha Dudekula",
+  "frontend": {
+    "framework": "React.js",
+    "tooling": "Vite",
     "styling": "Tailwind CSS",
-    "state": "React Context / Hooks"
+    "languages": ["JavaScript", "HTML5", "CSS3"]
   },
   "backend": {
     "runtime": "Node.js",
     "framework": "Express.js",
-    "protocols": ["REST", "WebSocket"],
-    "security": ["Helmet", "RateLimiter", "Bcrypt"]
+    "protocols": ["REST APIs", "Socket.IO"],
+    "security": ["JWT", "Bcrypt"]
   },
-  "database": {
-    "primary": "MongoDB Atlas",
-    "odm": "Mongoose",
-    "caching": "Redis"
+  "data_and_ai": {
+    "databases": ["MongoDB", "PostgreSQL"],
+    "orm": "Prisma",
+    "vector_db": "Qdrant",
+    "cache_queues": ["Redis", "BullMQ"],
+    "rag_methods": ["Hybrid Retrieval", "RRF", "Reranking"]
   }
 }`,
-    'run.sh': `$ npm run dev:fullstack
-> Concurrently starting client and backend cluster...
-[client]  Vite v6.1 ready in 142ms http://localhost:5173/
-[server]  Node.js API listening on port 5000 (PID: 8192)
-[db]      MongoDB Atlas cluster connected successfully (12ms)
-[auth]    JWT token authorization strategy verified
-[system]  All health checks passed. 0 errors, 0 warnings.`
+    'run.sh': `$ npm run dev:resqai
+> Initializing multi-agent disaster intelligence cluster...
+[client]   React + Vite frontend ready at http://localhost:5173/
+[api]      Express & Node.js backend listening on port 5000
+[db]       PostgreSQL connected via Prisma ORM (4ms)
+[cache]    Redis & BullMQ worker queues initialized
+[vector]   Qdrant vector index loaded with private disaster knowledge
+[socket]   Socket.IO real-time token stream established
+[health]   Cluster healthy. 0 errors, 0 warnings.`
   };
 
   const handleCopy = () => {

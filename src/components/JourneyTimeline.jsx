@@ -21,8 +21,8 @@ export default function JourneyTimeline() {
         
         {/* Section Header */}
         <div className="flex flex-col items-start mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-accent-violet/10 border border-accent-violet/20 text-xs font-mono text-accent-violet mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-violet" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-accent-cyan/10 border border-accent-cyan/20 text-xs font-mono text-accent-cyan mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan" />
             <span>06 // CAREER & EDUCATION</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
