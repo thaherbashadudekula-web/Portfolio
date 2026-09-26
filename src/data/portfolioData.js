@@ -39,8 +39,8 @@ export const personalData = {
   github: "https://github.com/thaherbashadudekula-web",
   githubUsername: "thaherbashadudekula-web",
   linkedin: "https://www.linkedin.com/in/thaher-basha-dudekula-82369a366/",
-  resumeUrl: "/Thaher_Basha_Dudekula_Resume.docx",
-  resumeFileName: "Thaher_Basha_Dudekula_Resume.docx",
+  resumeUrl: "/Thaher_Basha_Dudekula_Resume.pdf",
+  resumeFileName: "Thaher_Basha_Dudekula_Resume.pdf",
   portfolioLiveUrl: "https://portfolio-coral-psi-7pbltgt9ay.vercel.app",
 
   // What I am currently building (live badge in Hero / Navbar)

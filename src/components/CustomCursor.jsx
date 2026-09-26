@@ -85,7 +85,7 @@ export default function CustomCursor() {
     <div className="hidden lg:block pointer-events-none fixed inset-0 z-[9999] select-none">
       {/* Precision Center Aim Dot */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full bg-accent-cyan pointer-events-none shadow-[0_0_10px_#06b6d4]"
+        className="fixed top-0 left-0 rounded-full bg-accent-cyan pointer-events-none shadow-[0_0_10px_rgba(2,132,199,0.5)]"
         style={{
           x: cursorX,
           y: cursorY,
@@ -114,12 +114,12 @@ export default function CustomCursor() {
             ? (hoverType === 'button' ? 52 : hoverType === 'card' ? 44 : 36) 
             : 28,
           borderColor: isHovered 
-            ? 'rgba(6, 182, 212, 0.75)' 
-            : 'rgba(255, 255, 255, 0.25)',
+            ? 'rgba(2, 132, 199, 0.85)' 
+            : 'rgba(14, 165, 233, 0.45)',
           backgroundColor: isHovered 
-            ? 'rgba(6, 182, 212, 0.1)' 
+            ? 'rgba(14, 165, 233, 0.12)' 
             : 'transparent',
-          boxShadow: isHovered ? '0 0 15px rgba(6, 182, 212, 0.3)' : 'none',
+          boxShadow: isHovered ? '0 0 15px rgba(14, 165, 233, 0.35)' : 'none',
           scale: isClicking ? 0.75 : 1,
         }}
         transition={{ duration: 0.18 }}

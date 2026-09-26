@@ -1,248 +1,365 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Copy, Check, Terminal, Code, Database } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  ShieldCheck, 
+  Activity, 
+  Lock, 
+  RefreshCw, 
+  Copy, 
+  Check, 
+  Code2, 
+  LayoutDashboard,
+  FileCode2,
+  Atom,
+  Server,
+  Database,
+  Brain
+} from 'lucide-react';
 import { personalData } from '../data/portfolioData';
 
 export default function HeroTerminal() {
-  const [activeTab, setActiveTab] = useState('developer.ts');
+  const [activeView, setActiveView] = useState('overview'); // 'overview' | 'code' | 'config'
   const [copied, setCopied] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const files = {
-    'developer.ts': `// Full-Stack / MERN Developer Specification
-export const developer: Profile = {
+  const developerCode = `// Full-Stack / MERN Developer Specification
+export const developer: DeveloperProfile = {
   name: "${personalData.displayName}",
-  title: "Full-Stack / MERN Developer",
+  role: "Full-Stack MERN Developer",
   education: {
-    program: "B.Tech in CSE (Artificial Intelligence)",
-    university: "Malla Reddy Vishwavidhyapeeth",
-    cgpa: "8.7 / 10"
+    degree: "B.Tech CSE (Artificial Intelligence)",
+    cgpa: "8.7 / 10",
+    university: "MRU Hyderabad"
   },
-  flagshipProject: "ResQAI (Multi-Agent Disaster Intelligence)",
-  stack: {
-    languages: ["JavaScript", "C++", "Python", "SQL"],
-    frontend: ["React.js", "Tailwind CSS", "HTML5", "CSS3", "Vite"],
-    backend: ["Node.js", "Express.js", "REST APIs", "Socket.IO", "JWT", "Bcrypt"],
-    database: ["MongoDB", "PostgreSQL", "Prisma", "Redis", "Qdrant"],
-    ai_rag: ["Multi-Agent RAG", "Embeddings", "Hybrid Retrieval", "RRF"]
+  coreArchitecture: {
+    client: ["React.js", "TypeScript", "Tailwind CSS", "Vite"],
+    server: ["Node.js", "Express.js", "REST APIs", "Socket.IO"],
+    database: ["MongoDB Atlas", "PostgreSQL", "Prisma ORM", "Redis"],
+    ai_rag: ["Multi-Agent RAG", "Qdrant Vector DB", "Hybrid Retrieval"]
   },
-  hackathons: ["Smart India Hackathon (ILRDVS)", "Razorpay Hackathon (RazorAI)", "HackIT x MRDU'26"],
-  status: "Open for Software Development / MERN Internships"
-};`,
-    'stack.config.json': `{
+  availableForHire: true,
+  mission: "Crafting robust full-stack software that scales gracefully."
+};`;
+
+  const stackConfigJson = `{
   "developer": "Thaher Basha Dudekula",
-  "frontend": {
-    "framework": "React.js",
-    "tooling": "Vite",
-    "styling": "Tailwind CSS",
-    "languages": ["JavaScript", "HTML5", "CSS3"]
+  "specialization": "MERN Stack & AI Systems",
+  "client_stack": {
+    "framework": "React.js 19",
+    "language": "TypeScript / JavaScript ES6+",
+    "styling": "Tailwind CSS (Utility-First Design)",
+    "bundler": "Vite ESM"
   },
-  "backend": {
-    "runtime": "Node.js",
-    "framework": "Express.js",
-    "protocols": ["REST APIs", "Socket.IO"],
-    "security": ["JWT", "Bcrypt"]
+  "backend_stack": {
+    "runtime": "Node.js (Event-driven asynchronous I/O)",
+    "framework": "Express.js REST APIs",
+    "realtime": "Socket.IO Event Streaming",
+    "auth": "JWT Stateless + Bcrypt Hashing"
   },
-  "data_and_ai": {
-    "databases": ["MongoDB", "PostgreSQL"],
-    "orm": "Prisma",
-    "vector_db": "Qdrant",
-    "cache_queues": ["Redis", "BullMQ"],
-    "rag_methods": ["Hybrid Retrieval", "RRF", "Reranking"]
+  "databases": {
+    "nosql": "MongoDB + Mongoose Aggregations",
+    "relational": "PostgreSQL + Prisma ORM (ACID)",
+    "caching": "Redis Key-Value & BullMQ Queues",
+    "vector": "Qdrant Dense Embedding Index"
   }
-}`,
-    'run.sh': `$ npm run dev:resqai
-> Initializing multi-agent disaster intelligence cluster...
-[client]   React + Vite frontend ready at http://localhost:5173/
-[api]      Express & Node.js backend listening on port 5000
-[db]       PostgreSQL connected via Prisma ORM (4ms)
-[cache]    Redis & BullMQ worker queues initialized
-[vector]   Qdrant vector index loaded with private disaster knowledge
-[socket]   Socket.IO real-time token stream established
-[health]   Cluster healthy. 0 errors, 0 warnings.`
-  };
+}`;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(files[activeTab]);
+    const textToCopy = activeView === 'config' ? stackConfigJson : developerCode;
+    navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleRefresh = () => {
+    setIsRefreshing(true);
+    setTimeout(() => setIsRefreshing(false), 600);
+  };
+
   return (
     <div className="relative w-full max-w-xl mx-auto lg:max-w-none">
-      {/* Background soft glow */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-accent-cyan/20 via-accent-blue/20 to-accent-violet/20 rounded-2xl blur-xl opacity-60 pointer-events-none" />
+      {/* Subtle ambient backglow */}
+      <div 
+        className="absolute -inset-2 bg-gradient-to-r from-sky-400/20 via-blue-500/20 to-sky-300/20 rounded-3xl blur-2xl opacity-70 pointer-events-none" 
+        aria-hidden="true" 
+      />
 
-      {/* Main Terminal Window */}
-      <div className="relative rounded-2xl bg-dark-900/90 border border-white/10 shadow-2xl backdrop-blur-xl overflow-hidden">
-        {/* Terminal Header */}
-        <div className="flex items-center justify-between px-4 py-3 bg-dark-850/90 border-b border-white/[0.08] select-none">
-          <div className="flex items-center gap-2">
-            {/* macOS traffic light buttons */}
-            <span className="w-3 h-3 rounded-full bg-[#ff5f56] inline-block shadow-sm" />
-            <span className="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block shadow-sm" />
-            <span className="w-3 h-3 rounded-full bg-[#27c93f] inline-block shadow-sm" />
-            <span className="ml-2 text-xs font-mono text-slate-400 hidden sm:inline-flex items-center gap-1.5">
-              <Terminal className="w-3 h-3 text-accent-cyan" />
-              workspace ~ dev-terminal
-            </span>
+      {/* Main Window Container */}
+      <div className="relative rounded-3xl bg-white/95 border border-sky-200/90 shadow-2xl shadow-sky-100/70 overflow-hidden backdrop-blur-xl transition-all duration-300">
+        
+        {/* Browser Top Navigation Bar */}
+        <div className="flex items-center justify-between px-4 py-3 bg-sky-50/50 border-b border-sky-100">
+          {/* Traffic light control dots */}
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] shadow-xs" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] shadow-xs" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] shadow-xs" />
           </div>
 
-          {/* Copy Button */}
-          <button
-            type="button"
-            onClick={handleCopy}
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-dark-800 border border-white/10 text-[11px] font-mono text-slate-300 hover:text-white hover:border-accent-cyan/40 transition-colors focus-visible:ring-1 focus-visible:ring-accent-cyan"
-            title="Copy snippet"
-          >
-            {copied ? (
-              <>
-                <Check className="w-3 h-3 text-emerald-400" />
-                <span className="text-emerald-400">Copied</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-3 h-3 text-slate-400" />
-                <span>Copy</span>
-              </>
-            )}
-          </button>
+          {/* Centered Browser Address Bar */}
+          <div className="flex-1 max-w-xs mx-3 px-3.5 py-1.5 rounded-full bg-white border border-sky-200/80 flex items-center justify-between text-xs font-mono text-slate-700 shadow-xs">
+            <div className="flex items-center gap-1.5 truncate">
+              <Lock className="w-3 h-3 text-emerald-500 shrink-0" />
+              <span className="text-slate-600 truncate text-[11px]">
+                https://thaherbasha.dev/{activeView === 'overview' ? 'profile' : activeView === 'code' ? 'developer.ts' : 'stack.json'}
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={handleRefresh}
+              className="text-slate-400 hover:text-sky-600 transition-colors p-0.5 ml-1"
+              title="Refresh telemetry"
+              aria-label="Refresh view"
+            >
+              <RefreshCw className={`w-3 h-3 ${isRefreshing ? 'animate-spin text-sky-600' : ''}`} />
+            </button>
+          </div>
+
+          {/* Live Status Indicator */}
+          <div className="flex items-center gap-1.5 text-xs shrink-0">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[10px] font-mono text-emerald-600 font-bold tracking-wider hidden sm:inline">
+              LIVE READY
+            </span>
+          </div>
         </div>
 
-        {/* Tab Switcher */}
-        <div className="flex items-center px-2 pt-1 bg-dark-850/50 border-b border-white/[0.06] overflow-x-auto text-xs font-mono">
-          {Object.keys(files).map((fileName) => {
-            const isSelected = activeTab === fileName;
-            return (
-              <button
-                key={fileName}
-                type="button"
-                onClick={() => setActiveTab(fileName)}
-                className={`px-3 py-1.5 rounded-t-lg transition-colors border-b-2 flex items-center gap-1.5 whitespace-nowrap ${
-                  isSelected
-                    ? 'bg-dark-900 text-accent-cyan border-accent-cyan font-medium'
-                    : 'text-slate-400 hover:text-slate-200 border-transparent hover:bg-white/[0.02]'
-                }`}
+        {/* View Switcher Tabs (Dashboard vs Code vs Config) */}
+        <div className="flex items-center justify-between px-4 pt-2.5 pb-2 bg-sky-50/30 border-b border-sky-100/80 text-xs font-mono">
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => setActiveView('overview')}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-all ${
+                activeView === 'overview'
+                  ? 'bg-white text-sky-700 font-semibold shadow-xs border border-sky-200'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              <LayoutDashboard className="w-3 h-3 text-sky-600" />
+              <span>Overview</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveView('code')}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-all ${
+                activeView === 'code'
+                  ? 'bg-white text-sky-700 font-semibold shadow-xs border border-sky-200'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              <Code2 className="w-3 h-3 text-sky-600" />
+              <span>developer.ts</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveView('config')}
+              className={`hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-lg transition-all ${
+                activeView === 'config'
+                  ? 'bg-white text-sky-700 font-semibold shadow-xs border border-sky-200'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              <FileCode2 className="w-3 h-3 text-sky-600" />
+              <span>stack.config</span>
+            </button>
+          </div>
+
+          {(activeView === 'code' || activeView === 'config') && (
+            <button
+              type="button"
+              onClick={handleCopy}
+              className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-sky-200/80 text-[11px] font-mono text-slate-600 hover:text-sky-600 shadow-xs transition-colors"
+              title="Copy snippet"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3 h-3 text-emerald-600" />
+                  <span className="text-emerald-600 font-semibold">Copied</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3 h-3 text-slate-500" />
+                  <span>Copy</span>
+                </>
+              )}
+            </button>
+          )}
+        </div>
+
+        {/* Content Body */}
+        <div className="p-4 sm:p-5 bg-white space-y-4">
+          <AnimatePresence mode="wait">
+            {activeView === 'overview' ? (
+              /* ================= OVERVIEW VIEW (1:1 THEME MATCH) ================= */
+              <motion.div
+                key="overview"
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.2 }}
+                className="space-y-4"
               >
-                <Code className="w-3 h-3" />
-                {fileName}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Terminal Body */}
-        <div className="p-4 sm:p-5 font-mono text-xs sm:text-[13px] leading-relaxed overflow-x-auto max-h-[380px] selection:bg-accent-cyan/20">
-          <pre className="text-slate-300">
-            <code>
-              {activeTab === 'developer.ts' && (
-                <>
-                  <span className="text-slate-500">// MERN Stack Developer Specification</span>{'\n'}
-                  <span className="text-purple-400">export const</span>{' '}
-                  <span className="text-blue-400">developer</span>:{' '}
-                  <span className="text-emerald-400">Profile</span> = &#123;{'\n'}
-                  {'  '}<span className="text-cyan-300">name</span>:{' '}
-                  <span className="text-amber-300">"{personalData.displayName}"</span>,{'\n'}
-                  {'  '}<span className="text-cyan-300">role</span>:{' '}
-                  <span className="text-amber-300">"MERN Stack Developer"</span>,{'\n'}
-                  {'  '}<span className="text-cyan-300">focus</span>:{' '}
-                  <span className="text-slate-300">"Scalable backend APIs & high-performance React UI"</span>,{'\n'}
-                  {'  '}<span className="text-cyan-300">architecture</span>: &#123;{'\n'}
-                  {'    '}<span className="text-sky-300">client</span>: [
-                  <span className="text-amber-300">"React 19"</span>,{' '}
-                  <span className="text-amber-300">"TypeScript"</span>,{' '}
-                  <span className="text-amber-300">"Tailwind"</span>],{'\n'}
-                  {'    '}<span className="text-sky-300">server</span>: [
-                  <span className="text-amber-300">"Node.js"</span>,{' '}
-                  <span className="text-amber-300">"Express"</span>,{' '}
-                  <span className="text-amber-300">"REST APIs"</span>],{'\n'}
-                  {'    '}<span className="text-sky-300">database</span>: [
-                  <span className="text-amber-300">"MongoDB"</span>,{' '}
-                  <span className="text-amber-300">"Mongoose"</span>,{' '}
-                  <span className="text-amber-300">"Indexing"</span>],{'\n'}
-                  {'    '}<span className="text-sky-300">tooling</span>: [
-                  <span className="text-amber-300">"Git"</span>,{' '}
-                  <span className="text-amber-300">"Docker"</span>,{' '}
-                  <span className="text-amber-300">"Postman"</span>]{'\n'}
-                  {'  '}&#125;,{'\n'}
-                  {'  '}<span className="text-cyan-300">availableForHire</span>:{' '}
-                  <span className="text-emerald-400">true</span>,{'\n'}
-                  {'  '}<span className="text-cyan-300">mission</span>:{' '}
-                  <span className="text-amber-300">"Crafting modern software that scales gracefully."</span>{'\n'}
-                  &#125;;
-                </>
-              )}
-              {activeTab === 'stack.config.json' && (
-                <>
-                  <span className="text-slate-400">&#123;</span>{'\n'}
-                  {'  '}<span className="text-cyan-300">"stack"</span>: <span className="text-amber-300">"MERN"</span>,{'\n'}
-                  {'  '}<span className="text-cyan-300">"client"</span>: &#123;{'\n'}
-                  {'    '}<span className="text-purple-300">"framework"</span>: <span className="text-amber-300">"React 19"</span>,{'\n'}
-                  {'    '}<span className="text-purple-300">"bundler"</span>: <span className="text-amber-300">"Vite"</span>,{'\n'}
-                  {'    '}<span className="text-purple-300">"styling"</span>: <span className="text-amber-300">"Tailwind CSS"</span>{'\n'}
-                  {'  '}&#125;,{'\n'}
-                  {'  '}<span className="text-cyan-300">"backend"</span>: &#123;{'\n'}
-                  {'    '}<span className="text-purple-300">"runtime"</span>: <span className="text-amber-300">"Node.js"</span>,{'\n'}
-                  {'    '}<span className="text-purple-300">"framework"</span>: <span className="text-amber-300">"Express.js"</span>,{'\n'}
-                  {'    '}<span className="text-purple-300">"auth"</span>: <span className="text-amber-300">"JWT + HttpOnly Cookies"</span>{'\n'}
-                  {'  '}&#125;,{'\n'}
-                  {'  '}<span className="text-cyan-300">"database"</span>: &#123;{'\n'}
-                  {'    '}<span className="text-purple-300">"engine"</span>: <span className="text-amber-300">"MongoDB Atlas"</span>,{'\n'}
-                  {'    '}<span className="text-purple-300">"odm"</span>: <span className="text-amber-300">"Mongoose"</span>{'\n'}
-                  {'  '}&#125;{'\n'}
-                  <span className="text-slate-400">&#125;</span>
-                </>
-              )}
-              {activeTab === 'run.sh' && (
-                <div className="space-y-1 text-slate-300">
-                  <p className="text-accent-cyan font-bold">$ npm run dev:fullstack</p>
-                  <p className="text-slate-400">&gt; Concurrently starting client and backend cluster...</p>
-                  <p className="text-emerald-400">[client]  Vite v6.1 ready in 142ms http://localhost:5173/</p>
-                  <p className="text-sky-400">[server]  Node.js API listening on port 5000</p>
-                  <p className="text-green-400">[db]      MongoDB Atlas cluster connected (12ms)</p>
-                  <p className="text-violet-400">[auth]    JWT token authorization verified</p>
-                  <p className="text-emerald-300 font-semibold">[system]  All health checks passed. 0 errors.</p>
+                {/* Subheader: Developer Name & Core Specialization */}
+                <div className="flex items-center justify-between pb-3 border-b border-sky-100">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-sky-600 shrink-0" />
+                    <div>
+                      <h3 className="text-xs sm:text-sm font-bold text-slate-900 tracking-tight">
+                        {personalData.displayName}
+                      </h3>
+                      <span className="text-[10px] text-slate-500 font-mono block">
+                        Full-Stack MERN & AI Systems Developer
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-[10px] sm:text-xs font-mono px-2.5 py-0.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium whitespace-nowrap shadow-xs">
+                    Available for Hire (2026 Batch)
+                  </span>
                 </div>
-              )}
-            </code>
-          </pre>
+
+                {/* Three Key Summary Metric Cards */}
+                <div className="grid grid-cols-3 gap-2.5">
+                  <div className="p-3 rounded-2xl bg-white border border-sky-100 shadow-xs hover:border-sky-400 hover:shadow-md hover:shadow-sky-100/90 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 group cursor-default">
+                    <span className="text-[10px] text-slate-500 font-medium block group-hover:text-sky-600 transition-colors">Core Stack</span>
+                    <p className="text-sm sm:text-base font-bold text-sky-600 mt-0.5 group-hover:scale-105 transition-transform origin-left">MERN Stack</p>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-white border border-sky-100 shadow-xs hover:border-emerald-400 hover:shadow-md hover:shadow-emerald-100/80 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 group cursor-default">
+                    <span className="text-[10px] text-slate-500 font-medium block group-hover:text-emerald-600 transition-colors">Architecture</span>
+                    <p className="text-sm sm:text-base font-bold text-emerald-600 mt-0.5 group-hover:scale-105 transition-transform origin-left">React + Node</p>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-white border border-sky-100 shadow-xs hover:border-blue-400 hover:shadow-md hover:shadow-blue-100/80 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 group cursor-default">
+                    <span className="text-[10px] text-slate-500 font-medium block group-hover:text-blue-600 transition-colors">Databases</span>
+                    <p className="text-sm sm:text-base font-bold text-blue-600 mt-0.5 group-hover:scale-105 transition-transform origin-left">Mongo + SQL</p>
+                  </div>
+                </div>
+
+                {/* Structured Engineering Telemetry Rows */}
+                <div className="space-y-2 pt-1">
+                  <span className="text-[10px] sm:text-[11px] font-mono text-slate-400 font-bold uppercase tracking-wider block">
+                    Verified Full-Stack Telemetry
+                  </span>
+
+                  <div className="space-y-2">
+                    {/* Row 1: Frontend */}
+                    <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-sky-100/90 hover:border-sky-300 hover:bg-sky-50/50 hover:shadow-sm hover:translate-x-1.5 text-xs font-mono shadow-xs transition-all duration-200 group cursor-default">
+                      <div className="flex items-center gap-2 truncate">
+                        <Atom className="w-3.5 h-3.5 text-sky-600 shrink-0 group-hover:rotate-180 transition-transform duration-700" />
+                        <span className="text-slate-900 font-bold shrink-0 group-hover:text-sky-600 transition-colors">[FRONTEND]</span>
+                        <span className="text-slate-600 truncate text-[11px] sm:text-xs">
+                          React 19 • TypeScript • Tailwind CSS • Vite
+                        </span>
+                      </div>
+                      <span className="text-[10px] px-2 py-0.5 rounded border font-mono font-semibold bg-emerald-50 text-emerald-700 border-emerald-200 shrink-0 ml-2 group-hover:scale-105 transition-transform">
+                        PRODUCTION
+                      </span>
+                    </div>
+
+                    {/* Row 2: Backend */}
+                    <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-sky-100/90 hover:border-blue-300 hover:bg-blue-50/40 hover:shadow-sm hover:translate-x-1.5 text-xs font-mono shadow-xs transition-all duration-200 group cursor-default">
+                      <div className="flex items-center gap-2 truncate">
+                        <Server className="w-3.5 h-3.5 text-blue-600 shrink-0 group-hover:scale-110 transition-transform" />
+                        <span className="text-slate-900 font-bold shrink-0 group-hover:text-blue-600 transition-colors">[BACKEND]</span>
+                        <span className="text-slate-600 truncate text-[11px] sm:text-xs">
+                          Node.js • Express.js • REST APIs • Socket.IO
+                        </span>
+                      </div>
+                      <span className="text-[10px] px-2 py-0.5 rounded border font-mono font-semibold bg-sky-50 text-sky-700 border-sky-200 shrink-0 ml-2 group-hover:scale-105 transition-transform">
+                        REST / WS
+                      </span>
+                    </div>
+
+                    {/* Row 3: Database */}
+                    <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-sky-100/90 hover:border-amber-300 hover:bg-amber-50/40 hover:shadow-sm hover:translate-x-1.5 text-xs font-mono shadow-xs transition-all duration-200 group cursor-default">
+                      <div className="flex items-center gap-2 truncate">
+                        <Database className="w-3.5 h-3.5 text-amber-600 shrink-0 group-hover:scale-110 transition-transform" />
+                        <span className="text-slate-900 font-bold shrink-0 group-hover:text-amber-600 transition-colors">[DATABASE]</span>
+                        <span className="text-slate-600 truncate text-[11px] sm:text-xs">
+                          MongoDB Atlas • PostgreSQL • Prisma • Redis
+                        </span>
+                      </div>
+                      <span className="text-[10px] px-2 py-0.5 rounded border font-mono font-semibold bg-amber-50 text-amber-700 border-amber-200 shrink-0 ml-2 group-hover:scale-105 transition-transform">
+                        ACID & NOSQL
+                      </span>
+                    </div>
+
+                    {/* Row 4: AI & Innovation */}
+                    <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-sky-100/90 hover:border-purple-300 hover:bg-purple-50/40 hover:shadow-sm hover:translate-x-1.5 text-xs font-mono shadow-xs transition-all duration-200 group cursor-default">
+                      <div className="flex items-center gap-2 truncate">
+                        <Brain className="w-3.5 h-3.5 text-purple-600 shrink-0 group-hover:scale-110 transition-transform" />
+                        <span className="text-slate-900 font-bold shrink-0 group-hover:text-purple-600 transition-colors">[INNOVATION]</span>
+                        <span className="text-slate-600 truncate text-[11px] sm:text-xs">
+                          ResQAI • Multi-Agent RAG • Qdrant Vector DB
+                        </span>
+                      </div>
+                      <span className="text-[10px] px-2 py-0.5 rounded border font-mono font-semibold bg-emerald-50 text-emerald-700 border-emerald-200 shrink-0 ml-2 group-hover:scale-105 transition-transform animate-pulse">
+                        GROUNDED
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer Banner */}
+                <div className="p-3 rounded-xl bg-sky-50/60 border border-sky-200/60 hover:border-sky-300 hover:bg-sky-50/90 transition-all flex items-center justify-between text-[11px] font-mono shadow-xs">
+                  <span className="text-slate-600 font-medium truncate pr-2">
+                    B.Tech CSE (AI) • 8.7 CGPA • Open for Internships
+                  </span>
+                  <span className="text-sky-600 font-bold shrink-0">
+                    Hyderabad, India
+                  </span>
+                </div>
+              </motion.div>
+            ) : (
+              /* ================= LIGHT-THEME CODE EDITOR VIEW ================= */
+              <motion.div
+                key="code"
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.2 }}
+                className="rounded-2xl bg-sky-50/40 border border-sky-100 p-4 font-mono text-xs leading-relaxed overflow-x-auto max-h-[380px]"
+              >
+                <pre className="text-slate-800">
+                  <code>
+                    {activeView === 'code' ? (
+                      <>
+                        <span className="text-slate-400">// Full-Stack / MERN Developer Specification</span>{'\n'}
+                        <span className="text-purple-600 font-semibold">export const</span>{' '}
+                        <span className="text-sky-700 font-semibold">developer</span>
+                        <span className="text-slate-500">:</span>{' '}
+                        <span className="text-emerald-600 font-semibold">DeveloperProfile</span>{' '}
+                        <span className="text-slate-500">=</span> {'{\n'}
+                        {'  '}<span className="text-sky-700 font-semibold">name</span>: <span className="text-emerald-700">"{personalData.displayName}"</span>,{'\n'}
+                        {'  '}<span className="text-sky-700 font-semibold">role</span>: <span className="text-emerald-700">"Full-Stack MERN Developer"</span>,{'\n'}
+                        {'  '}<span className="text-sky-700 font-semibold">education</span>: {'{\n'}
+                        {'    '}<span className="text-sky-700 font-semibold">degree</span>: <span className="text-emerald-700">"B.Tech in CSE (Artificial Intelligence)"</span>,{'\n'}
+                        {'    '}<span className="text-sky-700 font-semibold">cgpa</span>: <span className="text-emerald-700">"8.7 / 10"</span>,{'\n'}
+                        {'    '}<span className="text-sky-700 font-semibold">university</span>: <span className="text-emerald-700">"MRU Hyderabad"</span>{'\n'}
+                        {'  },\n'}
+                        {'  '}<span className="text-sky-700 font-semibold">coreArchitecture</span>: {'{\n'}
+                        {'    '}<span className="text-sky-700 font-semibold">client</span>: [<span className="text-emerald-700">"React.js"</span>, <span className="text-emerald-700">"TypeScript"</span>, <span className="text-emerald-700">"Tailwind CSS"</span>],{'\n'}
+                        {'    '}<span className="text-sky-700 font-semibold">server</span>: [<span className="text-emerald-700">"Node.js"</span>, <span className="text-emerald-700">"Express.js"</span>, <span className="text-emerald-700">"REST APIs"</span>],{'\n'}
+                        {'    '}<span className="text-sky-700 font-semibold">database</span>: [<span className="text-emerald-700">"MongoDB"</span>, <span className="text-emerald-700">"PostgreSQL"</span>, <span className="text-emerald-700">"Prisma"</span>, <span className="text-emerald-700">"Redis"</span>],{'\n'}
+                        {'    '}<span className="text-sky-700 font-semibold">ai_rag</span>: [<span className="text-emerald-700">"Multi-Agent RAG"</span>, <span className="text-emerald-700">"Qdrant Vector DB"</span>]{'\n'}
+                        {'  },\n'}
+                        {'  '}<span className="text-sky-700 font-semibold">availableForHire</span>: <span className="text-blue-600 font-bold">true</span>,{'\n'}
+                        {'  '}<span className="text-sky-700 font-semibold">mission</span>: <span className="text-emerald-700">"Crafting robust full-stack software that scales gracefully."</span>{'\n'}
+                        {'};'}
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-slate-400">// Stack Configuration Object</span>{'\n'}
+                        <span className="text-slate-700">{stackConfigJson}</span>
+                      </>
+                    )}
+                  </code>
+                </pre>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
-        {/* Terminal Status Bar */}
-        <div className="flex items-center justify-between px-4 py-2 bg-dark-850/90 border-t border-white/[0.08] text-[11px] font-mono text-slate-400">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1 text-emerald-400">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
-              main (clean)
-            </span>
-            <span className="hidden sm:inline text-slate-500">|</span>
-            <span className="hidden sm:inline">UTF-8</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-accent-cyan">TypeScript 5.4</span>
-            <span className="text-slate-500">|</span>
-            <span className="text-slate-300">0 Errors</span>
-          </div>
-        </div>
       </div>
-
-      {/* Floating Tech Badges around Terminal */}
-      <motion.div
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        className="hidden md:flex items-center gap-2 absolute -bottom-5 -left-5 px-3.5 py-2 rounded-xl glass-panel border-accent-cyan/30 shadow-glow-cyan text-xs font-mono text-slate-200"
-      >
-        <span className="w-2 h-2 rounded-full bg-accent-cyan" />
-        <span className="font-semibold text-accent-cyan">React</span> 19 + Node.js
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, 7, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="hidden md:flex items-center gap-2 absolute -top-4 -right-4 px-3.5 py-2 rounded-xl glass-panel border-accent-violet/30 shadow-glow-violet text-xs font-mono text-slate-200"
-      >
-        <Database className="w-3.5 h-3.5 text-accent-violet" />
-        <span className="font-semibold text-accent-violet">MongoDB</span> Atlas
-      </motion.div>
     </div>
   );
 }

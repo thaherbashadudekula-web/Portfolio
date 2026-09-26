@@ -32,7 +32,7 @@ export default function App() {
   const activeSection = useScrollSpy(SECTION_IDS, 180);
 
   return (
-    <div className="min-h-screen bg-dark-950 text-slate-100 font-sans selection:bg-accent-cyan/20 selection:text-accent-cyan-light relative overflow-x-hidden">
+    <div className="min-h-screen bg-white text-slate-800 font-sans selection:bg-sky-200 selection:text-sky-900 relative overflow-x-hidden">
       {/* Lightweight Initial Branded Splash */}
       <Preloader />
 

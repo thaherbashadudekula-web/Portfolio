@@ -1,18 +1,27 @@
 /**
  * TECH STACK DATA CONFIGURATION
  * Comprehensive, honest data-driven technology graph.
- * Sleek Light Blue & White Theme.
+ * Sleek Light Blue & White Theme with high-contrast, vibrant category colors.
  * Strictly reflects Thaher Basha Dudekula's verified resume and authentic project citations.
  */
 
+export const CATEGORY_COLORS = {
+  languages: '#2563eb', // Royal Blue
+  frontend: '#0284c7',  // Sky Blue
+  backend: '#059669',   // Emerald Green
+  airag: '#7c3aed',     // Purple
+  database: '#0d9488',  // Teal
+  tools: '#d97706'      // Amber
+};
+
 export const TECH_CATEGORIES = [
   { id: 'all', label: 'All Technologies' },
-  { id: 'languages', label: 'Languages', color: '#93c5fd' },
-  { id: 'frontend', label: 'Frontend', color: '#38bdf8' },
-  { id: 'backend', label: 'Backend', color: '#60a5fa' },
-  { id: 'airag', label: 'AI / RAG', color: '#bae6fd' },
-  { id: 'database', label: 'Database', color: '#7dd3fc' },
-  { id: 'tools', label: 'Tools', color: '#ffffff' }
+  { id: 'languages', label: 'Languages', color: CATEGORY_COLORS.languages },
+  { id: 'frontend', label: 'Frontend', color: CATEGORY_COLORS.frontend },
+  { id: 'backend', label: 'Backend', color: CATEGORY_COLORS.backend },
+  { id: 'airag', label: 'AI / RAG', color: CATEGORY_COLORS.airag },
+  { id: 'database', label: 'Database', color: CATEGORY_COLORS.database },
+  { id: 'tools', label: 'Tools', color: CATEGORY_COLORS.tools }
 ];
 
 export const TECH_NODES = [
@@ -23,17 +32,14 @@ export const TECH_NODES = [
     shortName: 'JavaScript',
     category: 'languages',
     categoryLabel: 'Languages',
-    categoryColor: '#93c5fd',
+    categoryColor: CATEGORY_COLORS.languages,
     icon: 'FileCode',
     status: 'Daily Driver',
     statusType: 'daily',
     summary: 'Asynchronous event loop, ES6+, functional paradigms & modern web architectures.',
     howIUseIt: 'My primary programming language across client and server. I use modern JavaScript for React components, Node.js/Express backend APIs, and real-time streaming architectures.',
     projects: ['ResQAI', 'Developer Portfolio', 'BhoomiVerify AI', 'RazorAI', 'SUZI Pet Care'],
-    related: ['typescript', 'react', 'nodejs', 'express', 'htmlcss'],
-    x: 500,
-    y: 180,
-    orbit: 1
+    related: ['typescript', 'react', 'nodejs', 'express', 'htmlcss']
   },
   {
     id: 'typescript',
@@ -41,17 +47,14 @@ export const TECH_NODES = [
     shortName: 'TypeScript',
     category: 'languages',
     categoryLabel: 'Languages',
-    categoryColor: '#93c5fd',
+    categoryColor: CATEGORY_COLORS.languages,
     icon: 'FileCode2',
     status: 'Production Ready',
     statusType: 'production',
     summary: 'Static typing, interfaces, strict contracts & type-safe backend services.',
     howIUseIt: 'Utilized in the ResQAI backend architecture alongside Node.js and Prisma to ensure robust type contracts, eliminate runtime errors, and streamline data handling.',
     projects: ['ResQAI'],
-    related: ['javascript', 'nodejs', 'express', 'prisma'],
-    x: 630,
-    y: 190,
-    orbit: 1
+    related: ['javascript', 'nodejs', 'express', 'prisma']
   },
   {
     id: 'cpp',
@@ -59,17 +62,14 @@ export const TECH_NODES = [
     shortName: 'C++',
     category: 'languages',
     categoryLabel: 'Languages',
-    categoryColor: '#93c5fd',
+    categoryColor: CATEGORY_COLORS.languages,
     icon: 'FileCode2',
     status: 'Core Foundation',
     statusType: 'production',
     summary: 'Object-oriented programming, data structures, algorithm design & memory efficiency.',
     howIUseIt: 'Used for rigorous academic coursework and algorithmic problem solving in Computer Science, focusing on optimal time complexity and data structure implementation.',
     projects: ['Academic Coursework & DSA'],
-    related: ['python', 'sql'],
-    x: 770,
-    y: 110,
-    orbit: 3
+    related: ['python', 'sql']
   },
   {
     id: 'python',
@@ -77,17 +77,14 @@ export const TECH_NODES = [
     shortName: 'Python',
     category: 'languages',
     categoryLabel: 'Languages',
-    categoryColor: '#93c5fd',
+    categoryColor: CATEGORY_COLORS.languages,
     icon: 'Terminal',
     status: 'Production Ready',
     statusType: 'production',
     summary: 'Scripting, AI embeddings, RAG data ingestion pipelines & automation.',
     howIUseIt: 'Employed in AI coursework, data preprocessing, and prototyping RAG ingestion pipelines, vector embeddings, and chunking routines.',
     projects: ['AI / RAG Pipelines', 'Academic AI Projects'],
-    related: ['airag', 'sql'],
-    x: 690,
-    y: 90,
-    orbit: 3
+    related: ['airag', 'sql']
   },
   {
     id: 'sql',
@@ -95,17 +92,14 @@ export const TECH_NODES = [
     shortName: 'SQL',
     category: 'languages',
     categoryLabel: 'Languages',
-    categoryColor: '#93c5fd',
+    categoryColor: CATEGORY_COLORS.languages,
     icon: 'Table',
     status: 'Core Foundation',
     statusType: 'production',
     summary: 'Relational query design, joins, normalization, schema constraints & ACID.',
     howIUseIt: 'Writing and optimizing relational database queries, table constraints, and indexing strategies for PostgreSQL.',
     projects: ['ResQAI (PostgreSQL)', 'Relational Database Projects'],
-    related: ['postgresql', 'prisma'],
-    x: 820,
-    y: 170,
-    orbit: 2
+    related: ['postgresql', 'prisma']
   },
 
   // ==================== FRONTEND ====================
@@ -115,53 +109,44 @@ export const TECH_NODES = [
     shortName: 'React.js',
     category: 'frontend',
     categoryLabel: 'Frontend',
-    categoryColor: '#38bdf8',
+    categoryColor: CATEGORY_COLORS.frontend,
     icon: 'Atom',
     status: 'Daily Driver',
     statusType: 'daily',
     summary: 'Component-based architecture, hooks, responsive state & SPA development.',
     howIUseIt: 'Architecting modular UI components, managing reactive application state, and building smooth user interfaces with fast rendering and intuitive UX.',
     projects: ['Developer Portfolio', 'BhoomiVerify AI', 'RazorAI', 'SUZI Pet Care'],
-    related: ['javascript', 'tailwind', 'htmlcss', 'vite'],
-    x: 340,
-    y: 190,
-    orbit: 1
+    related: ['javascript', 'tailwind', 'htmlcss', 'vite']
   },
   {
     id: 'tailwind',
     name: 'Tailwind CSS',
-    shortName: 'Tailwind CSS',
+    shortName: 'Tailwind',
     category: 'frontend',
     categoryLabel: 'Frontend',
-    categoryColor: '#38bdf8',
+    categoryColor: CATEGORY_COLORS.frontend,
     icon: 'Palette',
     status: 'Daily Driver',
     statusType: 'daily',
-    summary: 'Utility-first styling, dark mode themes & responsive design systems.',
-    howIUseIt: 'My standard styling framework. I design clean responsive interfaces, sleek dark themes, and glassmorphic visual aesthetics without bulky CSS overhead.',
+    summary: 'Utility-first styling, design systems & responsive layouts.',
+    howIUseIt: 'My standard styling framework. I design clean responsive interfaces, sleek themes, and glassmorphic visual aesthetics without bulky CSS overhead.',
     projects: ['Developer Portfolio', 'BhoomiVerify AI', 'SUZI Pet Care'],
-    related: ['react', 'htmlcss'],
-    x: 470,
-    y: 70,
-    orbit: 2
+    related: ['react', 'htmlcss']
   },
   {
     id: 'htmlcss',
     name: 'HTML5 & CSS3',
-    shortName: 'HTML5 / CSS3',
+    shortName: 'HTML / CSS',
     category: 'frontend',
     categoryLabel: 'Frontend',
-    categoryColor: '#38bdf8',
-    icon: 'Globe',
-    status: 'Daily Driver',
+    categoryColor: CATEGORY_COLORS.frontend,
+    icon: 'Sparkles',
+    status: 'Core Foundation',
     statusType: 'daily',
-    summary: 'Semantic DOM markup, CSS Grid, Flexbox & accessible layouts.',
-    howIUseIt: 'The bedrock of all web interfaces. Adhering to semantic elements, responsive media queries, and accessible web standards across all devices.',
-    projects: ['Developer Portfolio', 'Web Applications'],
-    related: ['react', 'tailwind', 'javascript'],
-    x: 330,
-    y: 70,
-    orbit: 3
+    summary: 'Semantic web standards, CSS Grid/Flexbox, accessible markup & micro-animations.',
+    howIUseIt: 'Ensuring accessible semantic hierarchy, mobile-friendly layouts, cross-browser consistency, and fluid responsive styling across all devices.',
+    projects: ['All Web Projects'],
+    related: ['react', 'tailwind']
   },
 
   // ==================== BACKEND ====================
@@ -171,17 +156,14 @@ export const TECH_NODES = [
     shortName: 'Node.js',
     category: 'backend',
     categoryLabel: 'Backend',
-    categoryColor: '#60a5fa',
+    categoryColor: CATEGORY_COLORS.backend,
     icon: 'Server',
     status: 'Daily Driver',
     statusType: 'daily',
-    summary: 'Event-driven asynchronous runtime, REST services & scalable backends.',
-    howIUseIt: 'Building asynchronous backend architectures, handling multi-agent orchestration in ResQAI, integrating vector databases, and managing background jobs.',
-    projects: ['ResQAI', 'RazorAI'],
-    related: ['javascript', 'typescript', 'express', 'mongodb', 'restapi', 'jwtauth', 'socketio'],
-    x: 610,
-    y: 410,
-    orbit: 1
+    summary: 'Non-blocking I/O event-driven server runtime for scalable backend services.',
+    howIUseIt: 'Serving backend business logic, asynchronous task processing, middleware orchestration, and connecting services to databases.',
+    projects: ['ResQAI', 'CampusOS', 'BhoomiVerify AI Backend', 'RazorAI'],
+    related: ['express', 'mongodb', 'postgresql', 'socketio', 'redis', 'restapi']
   },
   {
     id: 'express',
@@ -189,129 +171,108 @@ export const TECH_NODES = [
     shortName: 'Express.js',
     category: 'backend',
     categoryLabel: 'Backend',
-    categoryColor: '#60a5fa',
+    categoryColor: CATEGORY_COLORS.backend,
     icon: 'Cpu',
     status: 'Daily Driver',
     statusType: 'daily',
-    summary: 'Modular routers, middleware pipelines, error handlers & secure endpoints.',
-    howIUseIt: 'Designing layered RESTful API architectures with structured controllers, route validation middleware, CORS management, and centralized error handling.',
-    projects: ['ResQAI'],
-    related: ['nodejs', 'mongodb', 'restapi', 'jwtauth', 'postgresql'],
-    x: 480,
-    y: 450,
-    orbit: 1
+    summary: 'Minimalist web framework for routing, RESTful APIs, and middleware stacks.',
+    howIUseIt: 'Structuring clean modular REST endpoints, route controllers, validation pipelines, error handling middlewares, and JWT authentication guards.',
+    projects: ['ResQAI', 'CampusOS', 'BhoomiVerify AI Backend'],
+    related: ['nodejs', 'mongodb', 'restapi', 'jwtauth']
   },
   {
     id: 'restapi',
-    name: 'REST APIs',
+    name: 'RESTful APIs',
     shortName: 'REST APIs',
     category: 'backend',
     categoryLabel: 'Backend',
-    categoryColor: '#60a5fa',
+    categoryColor: CATEGORY_COLORS.backend,
     icon: 'Network',
     status: 'Daily Driver',
     statusType: 'daily',
-    summary: 'HTTP protocol contracts, JSON envelopes, CRUD operations & endpoint security.',
-    howIUseIt: 'Designing predictable, versioned REST endpoints with appropriate status codes, request validation, and clean request/response lifecycles.',
-    projects: ['ResQAI', 'SIH — ILRDVS', 'RazorAI'],
-    related: ['express', 'nodejs', 'jwtauth'],
-    x: 760,
-    y: 470,
-    orbit: 2
+    summary: 'Stateless resource architectures, standard HTTP verbs, JSON payloads & pagination.',
+    howIUseIt: 'Designing production-grade APIs with predictable response formatting, robust rate limiting, status code accuracy, and Swagger/OpenAPI documentation.',
+    projects: ['ResQAI', 'CampusOS', 'RazorAI'],
+    related: ['nodejs', 'express', 'jwtauth']
   },
   {
     id: 'jwtauth',
-    name: 'JWT & Bcrypt',
-    shortName: 'JWT / Bcrypt',
+    name: 'JWT & Auth',
+    shortName: 'JWT Auth',
     category: 'backend',
     categoryLabel: 'Backend',
-    categoryColor: '#60a5fa',
+    categoryColor: CATEGORY_COLORS.backend,
     icon: 'ShieldCheck',
-    status: 'Daily Driver',
-    statusType: 'daily',
-    summary: 'Cryptographic tokens, salted password hashing & protected route authorization.',
-    howIUseIt: 'Implementing secure user authentication flows across hackathon projects and ResQAI, using salted password hashing and signed JWT bearer tokens for access control.',
-    projects: ['ResQAI', 'SIH — ILRDVS', 'RazorAI'],
-    related: ['nodejs', 'express', 'restapi'],
-    x: 620,
-    y: 540,
-    orbit: 2
+    status: 'Production Ready',
+    statusType: 'production',
+    summary: 'Stateless token authentication, bcrypt hashing, RBAC & refresh token lifecycles.',
+    howIUseIt: 'Securing user sessions with HTTP-only cookies, granular role-based route guards, and encrypted password storage.',
+    projects: ['CampusOS', 'ResQAI'],
+    related: ['nodejs', 'express', 'restapi']
   },
   {
     id: 'socketio',
-    name: 'Socket.IO',
-    shortName: 'Socket.IO',
+    name: 'Socket.io',
+    shortName: 'Socket.io',
     category: 'backend',
     categoryLabel: 'Backend',
-    categoryColor: '#60a5fa',
+    categoryColor: CATEGORY_COLORS.backend,
     icon: 'Radio',
     status: 'Production Ready',
     statusType: 'production',
-    summary: 'Real-time bidirectional event streaming and token-by-token LLM output delivery.',
-    howIUseIt: 'Engineered real-time token streaming in ResQAI to stream LLM responses directly to clients with minimal latency as multi-agent synthesis progresses.',
-    projects: ['ResQAI'],
-    related: ['nodejs', 'airag'],
-    x: 820,
-    y: 360,
-    orbit: 2
+    summary: 'Bi-directional low-latency event-based real-time communication.',
+    howIUseIt: 'Powering live notification feeds, active user dispatching, and streaming data updates in real-time dashboards.',
+    projects: ['CampusOS Real-Time Feed', 'ResQAI Live Alerting'],
+    related: ['nodejs', 'express', 'redis']
   },
 
   // ==================== AI / RAG ====================
   {
     id: 'airag',
     name: 'RAG Architecture',
-    shortName: 'RAG & Multi-Agent',
+    shortName: 'AI / RAG',
     category: 'airag',
     categoryLabel: 'AI / RAG',
-    categoryColor: '#bae6fd',
+    categoryColor: CATEGORY_COLORS.airag,
     icon: 'Brain',
     status: 'Production Ready',
     statusType: 'production',
-    summary: 'Retrieval-Augmented Generation, multi-agent workflows & dynamic prompt assembly.',
-    howIUseIt: 'Architected the ResQAI multi-agent disaster intelligence backend for querying specialized private knowledge sources (disaster, government, health, volunteer) with grounded synthesis.',
-    projects: ['ResQAI', 'RazorAI'],
-    related: ['qdrant', 'nodejs', 'socketio'],
-    x: 850,
-    y: 240,
-    orbit: 2
+    summary: 'Retrieval-Augmented Generation, chunking, vector embeddings & LLM context grounding.',
+    howIUseIt: 'Designed and implemented the core intelligence engine for ResQAI. Ingesting unstructured disaster manuals, generating dense vector embeddings, and retrieving grounded context.',
+    projects: ['ResQAI'],
+    related: ['retrieval', 'qdrant', 'python', 'nodejs']
   },
   {
     id: 'retrieval',
-    name: 'Hybrid Retrieval & RRF',
-    shortName: 'Hybrid / RRF',
+    name: 'Hybrid Search & Retrieval',
+    shortName: 'Hybrid Search',
     category: 'airag',
     categoryLabel: 'AI / RAG',
-    categoryColor: '#bae6fd',
-    icon: 'Sparkles',
+    categoryColor: CATEGORY_COLORS.airag,
+    icon: 'Sparkle',
     status: 'Production Ready',
     statusType: 'production',
-    summary: 'Reciprocal Rank Fusion, vector similarity, semantic chunking & reranking.',
-    howIUseIt: 'Implemented semantic chunking, dense vector embeddings, hybrid retrieval combining sparse keyword and dense vectors, and reciprocal rank fusion (RRF) for high-relevance retrieval.',
+    summary: 'Cosine similarity, semantic search, re-ranking & top-k context synthesis.',
+    howIUseIt: 'Implementing dense retrieval pipelines with similarity score thresholds to ensure only high-fidelity reference chunks reach the LLM prompt window.',
     projects: ['ResQAI'],
-    related: ['airag', 'qdrant'],
-    x: 910,
-    y: 160,
-    orbit: 3
+    related: ['airag', 'qdrant']
   },
 
-  // ==================== DATABASE ====================
+  // ==================== DATABASES ====================
   {
     id: 'mongodb',
     name: 'MongoDB',
     shortName: 'MongoDB',
     category: 'database',
     categoryLabel: 'Database',
-    categoryColor: '#7dd3fc',
+    categoryColor: CATEGORY_COLORS.database,
     icon: 'Database',
     status: 'Daily Driver',
     statusType: 'daily',
-    summary: 'Document collections, schema design, flexible NoSQL models & Atlas.',
-    howIUseIt: 'My standard NoSQL database for MERN stack applications. I model document schemas, manage indexing, and perform efficient CRUD operations for high-velocity application state.',
-    projects: ['MERN Stack Applications'],
-    related: ['nodejs', 'express'],
-    x: 350,
-    y: 410,
-    orbit: 1
+    summary: 'Flexible document schema design, Mongoose modeling, aggregation pipelines & indexing.',
+    howIUseIt: 'My go-to NoSQL database for rapid product iteration. Creating optimized schemas, compound indexes for fast queries, and complex aggregation stages.',
+    projects: ['CampusOS', 'RazorAI', 'BhoomiVerify AI'],
+    related: ['nodejs', 'express', 'prisma']
   },
   {
     id: 'postgresql',
@@ -319,17 +280,14 @@ export const TECH_NODES = [
     shortName: 'PostgreSQL',
     category: 'database',
     categoryLabel: 'Database',
-    categoryColor: '#7dd3fc',
+    categoryColor: CATEGORY_COLORS.database,
     icon: 'Table',
     status: 'Production Ready',
     statusType: 'production',
-    summary: 'Relational data integrity, schema constraints, ACID transactions & SQL queries.',
-    howIUseIt: 'Primary relational data store for the ResQAI platform, maintaining structured records for authentication, document metadata, audit logs, and domain knowledge partitions.',
+    summary: 'Relational integrity, foreign keys, ACID compliance, complex queries & migrations.',
+    howIUseIt: 'Selected as the core relational persistence layer in ResQAI alongside Prisma ORM, handling structured data, user accounts, and audit logging with ACID guarantees.',
     projects: ['ResQAI'],
-    related: ['prisma', 'sql', 'nodejs'],
-    x: 360,
-    y: 540,
-    orbit: 2
+    related: ['prisma', 'sql', 'nodejs', 'docker']
   },
   {
     id: 'prisma',
@@ -337,35 +295,14 @@ export const TECH_NODES = [
     shortName: 'Prisma',
     category: 'database',
     categoryLabel: 'Database',
-    categoryColor: '#7dd3fc',
+    categoryColor: CATEGORY_COLORS.database,
     icon: 'FileCheck',
     status: 'Production Ready',
     statusType: 'production',
-    summary: 'Type-safe database ORM, automated migrations & relationship management.',
-    howIUseIt: 'Used with PostgreSQL in ResQAI to deliver type-safe database queries, manage schema migrations cleanly, and handle relations between agents, documents, and users.',
+    summary: 'Type-safe query building, declarative schema migrations & connection pooling.',
+    howIUseIt: 'Defining relational database schemas declaratively, running automated migrations, and generating fully type-safe queries in TypeScript backend services.',
     projects: ['ResQAI'],
-    related: ['postgresql', 'typescript', 'nodejs'],
-    x: 230,
-    y: 470,
-    orbit: 2
-  },
-  {
-    id: 'qdrant',
-    name: 'Qdrant Vector DB',
-    shortName: 'Qdrant',
-    category: 'database',
-    categoryLabel: 'Database',
-    categoryColor: '#7dd3fc',
-    icon: 'Layers',
-    status: 'Production Ready',
-    statusType: 'production',
-    summary: 'Vector database indexing, cosine distance similarity & payload filtering.',
-    howIUseIt: 'Indexes dense embeddings of disaster and government knowledge documents in ResQAI, executing fast nearest-neighbor similarity searches for grounding LLM generation.',
-    projects: ['ResQAI'],
-    related: ['airag', 'retrieval'],
-    x: 740,
-    y: 280,
-    orbit: 2
+    related: ['postgresql', 'typescript', 'nodejs']
   },
   {
     id: 'redis',
@@ -373,37 +310,46 @@ export const TECH_NODES = [
     shortName: 'Redis',
     category: 'database',
     categoryLabel: 'Database',
-    categoryColor: '#7dd3fc',
+    categoryColor: CATEGORY_COLORS.database,
     icon: 'Zap',
     status: 'Production Ready',
     statusType: 'production',
-    summary: 'In-memory key-value cache, session store & BullMQ queue broker.',
-    howIUseIt: 'Powers high-performance response caching and provides the distributed queue broker backend for asynchronous BullMQ background workers in ResQAI.',
+    summary: 'In-memory caching, key-value stores, distributed pub/sub & rate limiting.',
+    howIUseIt: 'Employed in ResQAI for caching frequent database queries, throttling burst traffic with sliding-window rate limiters, and managing task queue state with BullMQ.',
     projects: ['ResQAI'],
-    related: ['nodejs', 'bullmq'],
-    x: 210,
-    y: 380,
-    orbit: 3
+    related: ['bullmq', 'nodejs', 'docker']
+  },
+  {
+    id: 'qdrant',
+    name: 'Qdrant Vector DB',
+    shortName: 'Qdrant',
+    category: 'database',
+    categoryLabel: 'Database',
+    categoryColor: CATEGORY_COLORS.database,
+    icon: 'Compass',
+    status: 'Production Ready',
+    statusType: 'production',
+    summary: 'Vector indexing, approximate nearest neighbors (HNSW) & payload filtering.',
+    howIUseIt: 'Used for storing high-dimensional text embeddings in ResQAI and executing low-latency vector similarity queries with metadata payload filtering.',
+    projects: ['ResQAI'],
+    related: ['airag', 'retrieval']
   },
 
-  // ==================== TOOLS & DEVOPS ====================
+  // ==================== TOOLS & INFRASTRUCTURE ====================
   {
     id: 'git',
     name: 'Git & GitHub',
-    shortName: 'Git / GitHub',
+    shortName: 'Git',
     category: 'tools',
     categoryLabel: 'Tools',
-    categoryColor: '#ffffff',
+    categoryColor: CATEGORY_COLORS.tools,
     icon: 'GitBranch',
     status: 'Daily Driver',
     statusType: 'daily',
-    summary: 'Version control, feature branching, pull requests & open source collaboration.',
-    howIUseIt: 'The backbone of my workflow across hackathons and projects. Maintaining clean commit histories, collaborating with teammates, and managing codebases on GitHub.',
-    projects: ['All Projects & Hackathons'],
-    related: ['docker', 'vite'],
-    x: 120,
-    y: 240,
-    orbit: 3
+    summary: 'Branching models, atomic commits, pull request workflows & version control.',
+    howIUseIt: 'Daily version control management, branching strategies (feature/bugfix), code reviews, and maintaining organized commit histories across all repos.',
+    projects: ['All Repositories on GitHub'],
+    related: ['docker', 'vscode']
   },
   {
     id: 'docker',
@@ -411,17 +357,44 @@ export const TECH_NODES = [
     shortName: 'Docker',
     category: 'tools',
     categoryLabel: 'Tools',
-    categoryColor: '#ffffff',
+    categoryColor: CATEGORY_COLORS.tools,
     icon: 'Container',
     status: 'Production Ready',
     statusType: 'production',
-    summary: 'Containerized environments, Dockerfile specifications & local services.',
-    howIUseIt: 'Used to spin up and orchestrate reproducible development environments for Redis, PostgreSQL, and Qdrant vector databases in ResQAI.',
-    projects: ['ResQAI Environment'],
-    related: ['nodejs', 'postgresql', 'redis'],
-    x: 170,
-    y: 310,
-    orbit: 3
+    summary: 'Containerization, multi-stage Dockerfiles, Docker Compose & reproducible environments.',
+    howIUseIt: 'Containerizing multi-service stacks (Node.js API, PostgreSQL, Redis) via Docker Compose for consistent local development and staging environments.',
+    projects: ['ResQAI', 'CampusOS'],
+    related: ['postgresql', 'redis', 'nodejs']
+  },
+  {
+    id: 'postman',
+    name: 'Postman',
+    shortName: 'Postman',
+    category: 'tools',
+    categoryLabel: 'Tools',
+    categoryColor: CATEGORY_COLORS.tools,
+    icon: 'Send',
+    status: 'Daily Driver',
+    statusType: 'daily',
+    summary: 'API testing, collection runs, authentication token management & endpoint validation.',
+    howIUseIt: 'Authoring API test suites, mocking server responses, and validating request/response headers before client-side integration.',
+    projects: ['All Backend Projects'],
+    related: ['restapi', 'express']
+  },
+  {
+    id: 'vscode',
+    name: 'VS Code',
+    shortName: 'VS Code',
+    category: 'tools',
+    categoryLabel: 'Tools',
+    categoryColor: CATEGORY_COLORS.tools,
+    icon: 'Terminal',
+    status: 'Daily Driver',
+    statusType: 'daily',
+    summary: 'Code workspace customization, linting, debugging & productivity extensions.',
+    howIUseIt: 'My primary code editor with customized ESLint, Prettier, TypeScript tooling, and integrated terminal workflows.',
+    projects: ['Daily Engineering Environment'],
+    related: ['git']
   },
   {
     id: 'bullmq',
@@ -429,17 +402,14 @@ export const TECH_NODES = [
     shortName: 'BullMQ',
     category: 'tools',
     categoryLabel: 'Tools',
-    categoryColor: '#ffffff',
+    categoryColor: CATEGORY_COLORS.tools,
     icon: 'Radio',
     status: 'Production Ready',
     statusType: 'production',
     summary: 'Distributed background job processing, retry policies & asynchronous task queues.',
     howIUseIt: 'Used in ResQAI for handling heavy document ingestion, semantic chunking pipelines, and vector indexing asynchronously without blocking API responses.',
     projects: ['ResQAI'],
-    related: ['redis', 'nodejs'],
-    x: 240,
-    y: 280,
-    orbit: 3
+    related: ['redis', 'nodejs']
   },
   {
     id: 'vite',
@@ -447,52 +417,69 @@ export const TECH_NODES = [
     shortName: 'Vite',
     category: 'tools',
     categoryLabel: 'Tools',
-    categoryColor: '#ffffff',
+    categoryColor: CATEGORY_COLORS.tools,
     icon: 'Zap',
     status: 'Daily Driver',
     statusType: 'daily',
     summary: 'Lightning-fast ESM frontend tooling, hot module replacement & builds.',
     howIUseIt: 'My standard frontend build tool for React development. Providing instant hot-reloading feedback and highly optimized bundle output.',
     projects: ['Developer Portfolio'],
-    related: ['react', 'javascript'],
-    x: 670,
-    y: 80,
-    orbit: 3
+    related: ['react', 'javascript']
   }
-];
-
-// Deduplicated Graph Connections (Source <-> Target)
-export const TECH_EDGES = [
-  { source: 'javascript', target: 'typescript' },
-  { source: 'javascript', target: 'react' },
-  { source: 'javascript', target: 'nodejs' },
-  { source: 'javascript', target: 'htmlcss' },
-  { source: 'typescript', target: 'nodejs' },
-  { source: 'typescript', target: 'prisma' },
-  { source: 'cpp', target: 'python' },
-  { source: 'python', target: 'airag' },
-  { source: 'sql', target: 'postgresql' },
-  { source: 'react', target: 'tailwind' },
-  { source: 'react', target: 'vite' },
-  { source: 'react', target: 'nodejs' },
-  { source: 'htmlcss', target: 'tailwind' },
-  { source: 'nodejs', target: 'express' },
-  { source: 'nodejs', target: 'mongodb' },
-  { source: 'nodejs', target: 'postgresql' },
-  { source: 'nodejs', target: 'socketio' },
-  { source: 'nodejs', target: 'redis' },
-  { source: 'nodejs', target: 'airag' },
-  { source: 'express', target: 'restapi' },
-  { source: 'express', target: 'jwtauth' },
-  { source: 'express', target: 'mongodb' },
-  { source: 'postgresql', target: 'prisma' },
-  { source: 'airag', target: 'retrieval' },
-  { source: 'airag', target: 'qdrant' },
-  { source: 'redis', target: 'bullmq' },
-  { source: 'docker', target: 'postgresql' },
-  { source: 'docker', target: 'redis' },
-  { source: 'git', target: 'vite' }
 ];
 
 // Central nucleus core pillars
 export const CORE_MERN_IDS = ['react', 'nodejs', 'express', 'mongodb'];
+
+/**
+ * SIMPLIFIED, NON-OVERLAPPING CONSTELLATION GRAPH LAYOUT
+ * Compact canvas: viewBox="0 0 760 400"
+ * Center Nucleus: (380, 200)
+ * 14 core nodes distributed across 2 clean concentric orbits with zero collision/overlap.
+ */
+export const CONSTELLATION_NODES = [
+  // Inner Orbit: R = 100 (6 nodes)
+  { id: 'react', x: 380, y: 100, orbit: 1 },
+  { id: 'nodejs', x: 467, y: 150, orbit: 1 },
+  { id: 'express', x: 467, y: 250, orbit: 1 },
+  { id: 'mongodb', x: 380, y: 300, orbit: 1 },
+  { id: 'postgresql', x: 293, y: 250, orbit: 1 },
+  { id: 'typescript', x: 293, y: 150, orbit: 1 },
+
+  // Outer Orbit: R = 175 (8 nodes)
+  { id: 'javascript', x: 256, y: 76, orbit: 2 },
+  { id: 'tailwind', x: 504, y: 76, orbit: 2 },
+  { id: 'restapi', x: 555, y: 200, orbit: 2 },
+  { id: 'socketio', x: 504, y: 324, orbit: 2 },
+  { id: 'prisma', x: 380, y: 375, orbit: 2 },
+  { id: 'redis', x: 256, y: 324, orbit: 2 },
+  { id: 'airag', x: 205, y: 200, orbit: 2 },
+  { id: 'docker', x: 170, y: 125, orbit: 2 }
+];
+
+export const CONSTELLATION_EDGES = [
+  // Core MERN connections
+  { source: 'react', target: 'nodejs' },
+  { source: 'nodejs', target: 'express' },
+  { source: 'express', target: 'mongodb' },
+  { source: 'react', target: 'express' },
+  // Orbit links
+  { source: 'react', target: 'tailwind' },
+  { source: 'react', target: 'javascript' },
+  { source: 'typescript', target: 'javascript' },
+  { source: 'typescript', target: 'nodejs' },
+  { source: 'typescript', target: 'prisma' },
+  { source: 'nodejs', target: 'restapi' },
+  { source: 'nodejs', target: 'socketio' },
+  { source: 'nodejs', target: 'redis' },
+  { source: 'express', target: 'restapi' },
+  { source: 'mongodb', target: 'prisma' },
+  { source: 'postgresql', target: 'prisma' },
+  { source: 'postgresql', target: 'nodejs' },
+  { source: 'airag', target: 'nodejs' },
+  { source: 'docker', target: 'nodejs' },
+  { source: 'docker', target: 'postgresql' }
+];
+
+// Fallback all edges for matrix / lookup
+export const TECH_EDGES = CONSTELLATION_EDGES;
