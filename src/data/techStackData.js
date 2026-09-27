@@ -38,7 +38,7 @@ export const TECH_NODES = [
     statusType: 'daily',
     summary: 'Asynchronous event loop, ES6+, functional paradigms & modern web architectures.',
     howIUseIt: 'My primary programming language across client and server. I use modern JavaScript for React components, Node.js/Express backend APIs, and real-time streaming architectures.',
-    projects: ['ResQAI', 'Developer Portfolio', 'BhoomiVerify AI', 'RazorAI', 'SUZI Pet Care'],
+    projects: ['Pulse (Team Dashboard)', 'ResQAI', 'Developer Portfolio', 'BhoomiVerify AI', 'RazorAI', 'SUZI Pet Care'],
     related: ['typescript', 'react', 'nodejs', 'express', 'htmlcss']
   },
   {
@@ -145,7 +145,7 @@ export const TECH_NODES = [
     statusType: 'daily',
     summary: 'Semantic web standards, CSS Grid/Flexbox, accessible markup & micro-animations.',
     howIUseIt: 'Ensuring accessible semantic hierarchy, mobile-friendly layouts, cross-browser consistency, and fluid responsive styling across all devices.',
-    projects: ['All Web Projects'],
+    projects: ['Pulse (Team Dashboard)', 'All Web Projects'],
     related: ['react', 'tailwind']
   },
 

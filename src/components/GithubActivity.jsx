@@ -140,6 +140,12 @@ export default function GithubActivity() {
             // Authentic fallback repository cards
             [
               {
+                name: "Pulse",
+                desc: "High-velocity team operations and project management dashboard built with vanilla HTML5, CSS3, and modern ES6+ JavaScript.",
+                lang: "JavaScript",
+                url: "https://github.com/thaherbashadudekula-web/Pulse"
+              },
+              {
                 name: "ResQAI",
                 desc: "Autonomous multi-agent disaster intelligence RAG platform with hybrid retrieval, Qdrant vector search & Socket.IO token streaming.",
                 lang: "TypeScript",
@@ -149,12 +155,6 @@ export default function GithubActivity() {
                 name: "developer-portfolio",
                 desc: "Modern responsive developer portfolio built with React and Vite with a component-based frontend architecture.",
                 lang: "React.js",
-                url: personalData.github
-              },
-              {
-                name: "sih-ilrdvs",
-                desc: "Intelligent Land Record Digitization & Validation System frontend implementation and authentication workflows.",
-                lang: "JavaScript",
                 url: personalData.github
               }
             ].map((repo, idx) => (

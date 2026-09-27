@@ -250,6 +250,18 @@ export const featuredProject = {
 // Curated Project Portfolio (With verified live deployment links)
 export const curatedProjects = [
   {
+    id: "pulse-dashboard",
+    category: "Team Workspace & Dashboard",
+    title: "Pulse — Team Dashboard",
+    subtitle: "High-Velocity Task & Project Management Workspace",
+    description: "Responsive team operations dashboard engineered with vanilla HTML5, CSS3, and modern JavaScript. Features client-side multi-view routing (Overview, Tasks, Projects, Team, Reports, Settings), full-screen authentication & session persistence, animated KPI stat cards, interactive task management with filters, CSV report export, and WCAG AA accessibility.",
+    technologies: ["JavaScript (ES6+)", "HTML5 Semantic", "CSS3 Grid & Flexbox", "Client-Side Routing", "Session Auth", "WCAG AA"],
+    githubUrl: "https://github.com/thaherbashadudekula-web/Pulse",
+    liveUrl: "https://merry-syrniki-331675.netlify.app/",
+    featuredBadge: "Live Web App",
+    accentColor: "#38bdf8"
+  },
+  {
     id: "sih-ilrdvs",
     category: "Hackathon Project",
     title: "BhoomiVerify AI (SIH — ILRDVS)",
